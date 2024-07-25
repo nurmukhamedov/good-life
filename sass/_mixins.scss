@@ -1,0 +1,46 @@
+@mixin mainFlex() {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin itemsCenter() {
+    display: flex;
+    align-items: center;
+}
+
+@mixin mainTexts {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+@mixin smallDesktop() {
+    @media screen and (max-width: 1250px) {
+        @content;
+    }
+}
+
+@mixin largeTablet() {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mobile() {
+    @media screen and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin smallMobile() {
+    @media screen and (max-width: 400px) {
+        @content;
+    }
+}

@@ -1,0 +1,188 @@
+nav {
+    background-color: $secondary-color;
+    padding: 31px 0
+}
+
+.navigation {
+    @include mainFlex();
+
+    &__hamburger {
+        display: none;
+
+        @include largeTablet() {
+            display: block;
+        }
+    }
+
+    &__checkbox {
+        display: none
+    }
+}
+
+.navigation__checkbox:checked~.menu {
+    transform: translateX(0%);
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu {
+    @include itemsCenter();
+    column-gap: 76px;
+
+    @include smallDesktop() {
+        column-gap: 20px
+    }
+
+    @include largeTablet {
+        position: fixed;
+        padding: 50px;
+        row-gap: 50px;
+        flex-direction: column;
+        width: 100%;
+        left: 0;
+        height: 100vh;
+        top: 110px;
+        background: #762945;
+        transition: 0.5s;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(100%);
+        z-index: 10;
+    }
+
+    &__link {
+        @include mainTexts();
+        color: $primary-color;
+
+        @include largeTablet() {
+            font-size: 24px;
+        }
+
+        &--button {
+            background-color: $primary-color;
+            color: $secondary-color;
+            border: 1px solid $secondary-color;
+            padding: 16px 62px;
+            @include mainTexts();
+            border-radius: 50px;
+        }
+    }
+
+    &__search {
+        background: none;
+        border: none;
+        max-width: 57px;
+        width: 100%;
+        cursor: pointer;
+
+        @include largeTablet() {
+            max-width: 110px;
+            padding: 10px;
+        }
+
+        &::placeholder {
+            color: $primary-color;
+            @include mainTexts();
+
+            @include largeTablet() {
+                font-size: 24px;
+            }
+
+        }
+    }
+
+    &__item-search {
+        @include itemsCenter();
+        column-gap: 6px;
+        @include mainTexts();
+
+
+    }
+}
+
+.hero {
+    height: 90vh;
+    background-image: url('../images/hero-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    @include mobile() {
+        height: 60vh;
+        background-image: url('../images/hero-background-mobile.jpg');
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        &-title {
+            font-size: 70px;
+            line-height: 77px;
+            font-weight: 700;
+            text-align: center;
+            color: $primary-color;
+            max-width: 600px;
+
+            @include mobile() {
+                font-size: 32px;
+                line-height: 36px;
+                max-width: 320px;
+            }
+        }
+
+        &-span {
+            color: #FFC1D8;
+
+            @include mobile() {
+                color: $primary-color;
+            }
+        }
+
+        &-button {
+            background-color: $secondary-color;
+            color: $primary-color;
+            padding: 14px 56px 17px 56px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 37px;
+            margin-top: 22px;
+
+            @include mobile() {
+                padding: 10px 30px;
+                line-height: 32px;
+            }
+        }
+    }
+
+    &__dots {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        position: absolute;
+        bottom: 30px;
+
+        span {
+            width: 12px;
+            height: 12px;
+            background-color: $primary-color;
+            border-radius: 50%;
+
+            &.active {
+                background-color: $secondary-color;
+                width: 17px;
+                height: 17px;
+            }
+        }
+    }
+}
